@@ -13,12 +13,14 @@ export default function TabLayout() {
       <Tabs.Screen
         name="index"
         options={{
+          tabBarLabel: 'Home',
           tabBarIcon: ({ color, size }) => <FontAwesome6 name="map-location-dot" size={size} color={color} />,
         }}
       />
       <Tabs.Screen
         name="explore"
         options={{
+          tabBarLabel: 'Explore',
           tabBarIcon: ({ color, size }) => <MaterialCommunityIcons name="lighthouse" size={size} color={color} />,
         }}
       />
