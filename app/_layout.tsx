@@ -20,8 +20,7 @@ export default function RootLayout() {
       <StatusBar style="auto" />
       <SafeScreen>
         <Stack>
-          {/* <Stack.Screen name="(tabs)" options={{ headerShown: false }} /> */}
-          <Stack.Screen name="(onboarding)" options={{ headerShown: false }} />
+          <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
         </Stack>
       </SafeScreen>
     </SafeAreaProvider>
