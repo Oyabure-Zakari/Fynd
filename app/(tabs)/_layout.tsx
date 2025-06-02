@@ -10,8 +10,16 @@ export default function TabLayout() {
     <Tabs
       screenOptions={{
         headerShown: false,
+        animation: "fade",
         tabBarActiveTintColor: COLORS.purple,
         tabBarInactiveTintColor: COLORS.secondaryGrey,
+        tabBarStyle: {
+          backgroundColor: COLORS.white,
+          borderTopColor: COLORS.primaryGrey,
+          height: 60,
+        },
+        
+        tabBarHideOnKeyboard: true,
       }}>
       <Tabs.Screen
         name="index"
