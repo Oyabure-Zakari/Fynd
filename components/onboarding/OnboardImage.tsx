@@ -12,8 +12,8 @@ export default function OnboardImage({ source }: OnboardingImageProps) {
 
 const styles = StyleSheet.create({
   onboardImage: {
-    width: 300,
-    height: 300,
+    width: 250,
+    height: 250,
     resizeMode: "contain",
   },
 });
