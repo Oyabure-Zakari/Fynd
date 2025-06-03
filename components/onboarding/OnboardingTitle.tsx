@@ -1,7 +1,6 @@
-import { COLORS } from "@/constants/Colors";
-import { FONTSIZE } from "@/constants/FontSize";
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { Text, View } from "react-native";
+import styles from "../../styles/onboarding.styles";
 
 // imported from onboardingUI component
 type OnboardingTitleProps = {
@@ -10,21 +9,8 @@ type OnboardingTitleProps = {
 
 export default function OnboardingTitle({ title }: OnboardingTitleProps) {
   return (
-    <View style={styles.container}>
-      <Text style={styles.text}>{title}</Text>
+    <View style={styles.onboardTitleContainer}>
+      <Text style={styles.onboardTitleText}>{title}</Text>
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    width: "60%",
-  },
-
-  text: {
-    color: COLORS.blackGrey,
-    fontFamily: "primaryFont",
-    fontSize: FONTSIZE.primaryFont.large,
-    textAlign: "center"
-  },
-});

@@ -1,5 +1,7 @@
 import React from "react";
-import { StyleSheet, View } from "react-native";
+import { View } from "react-native";
+
+import styles from "../../styles/onboarding.styles";
 
 import { COLORS } from "@/constants/Colors";
 import { FONTSIZE } from "@/constants/FontSize";
@@ -9,7 +11,7 @@ import { Button } from "react-native-elements";
 export const skipButton = () => {
   const router = useRouter();
   return (
-    <View style={styles.button}>
+    <View style={styles.onboardButton}>
       <Button
         title="Skip"
         buttonStyle={{ backgroundColor: COLORS.white, borderRadius: 10 }}
@@ -27,7 +29,7 @@ export const skipButton = () => {
 
 export const nextButton = ({ ...props }) => {
   return (
-    <View style={styles.button}>
+    <View style={styles.onboardButton}>
       <Button
         title="Next"
         buttonStyle={{ backgroundColor: COLORS.purple, borderRadius: 10, width: 80 }}
@@ -46,7 +48,7 @@ export const nextButton = ({ ...props }) => {
 export const doneButton = () => {
   const router = useRouter();
   return (
-    <View style={styles.button}>
+    <View style={styles.onboardButton}>
       <Button
         title="Get Started"
         buttonStyle={{ backgroundColor: COLORS.purple, borderRadius: 10}}
@@ -62,8 +64,3 @@ export const doneButton = () => {
   );
 };
 
-const styles = StyleSheet.create({
-  button: {
-    paddingRight: 16,
-  },
-});

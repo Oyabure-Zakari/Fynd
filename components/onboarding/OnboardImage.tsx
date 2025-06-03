@@ -1,5 +1,6 @@
 import React from "react";
-import { Image, StyleSheet } from "react-native";
+import { Image } from "react-native";
+import styles from "../../styles/onboarding.styles";
 
 // imported from onboardingUI component
 type OnboardingImageProps = {
@@ -9,11 +10,3 @@ type OnboardingImageProps = {
 export default function OnboardImage({ source }: OnboardingImageProps) {
   return <Image source={source} style={styles.onboardImage} />;
 }
-
-const styles = StyleSheet.create({
-  onboardImage: {
-    width: 250,
-    height: 250,
-    resizeMode: "contain",
-  },
-});

@@ -1,7 +1,7 @@
-import { COLORS } from "@/constants/Colors";
-import { FONTSIZE } from "@/constants/FontSize";
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { Text, View } from "react-native";
+
+import styles from "../../styles/onboarding.styles";
 
 // imported from onboardingUI component
 type OnboardingSubtitleProps = {
@@ -10,22 +10,8 @@ type OnboardingSubtitleProps = {
 
 export default function OnboardingSubtitle({ subTitle }: OnboardingSubtitleProps) {
   return (
-    <View style={styles.container}>
-      <Text style={styles.text}>{subTitle}</Text>
+    <View style={styles.onboardSubtitleContainer}>
+      <Text style={styles.onboardSubtitleText}>{subTitle}</Text>
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    width: "90%",
-    marginTop: 20,
-  },
-
-  text: {
-    fontFamily: "secondaryFont",
-    fontSize: FONTSIZE.secondaryFont.small,
-    color: COLORS.tertiaryGrey,
-    textAlign: "center"
-  },
-});
