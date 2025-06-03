@@ -6,12 +6,17 @@ import { IMAGES } from "@/constants/Images";
 import Onboarding from "react-native-onboarding-swiper";
 
 import OnboardImage from "./OnboardImage";
+import { doneButton, nextButton, skipButton } from "./OnboardingButtons";
 import OnboardingSubtitle from "./OnboardingSubtitle";
 import OnboardingTitle from "./OnboardingTitle";
 
 export default function OnboardingUI() {
   return (
     <Onboarding
+      bottomBarColor={COLORS.white}
+      SkipButtonComponent={skipButton}
+      NextButtonComponent={nextButton}
+      DoneButtonComponent={doneButton}
       pages={[
         {
           backgroundColor: COLORS.white,
@@ -47,6 +52,19 @@ export default function OnboardingUI() {
             <OnboardingSubtitle
               subTitle={
                 "Type in an address, business, or landmark to instantly locate your destination. Our smart search makes  it easy to plan your journey or discover new spots."
+              }
+            />
+          ),
+        },
+
+        {
+          backgroundColor: COLORS.white,
+          image: <OnboardImage source={IMAGES.onboard4} />,
+          title: <OnboardingTitle title={"Take Control as  an Admin"} />,
+          subtitle: (
+            <OnboardingSubtitle
+              subTitle={
+                "Add new locations to the map by  uploading coordinates. Customize the  map for your team or community,  ensuring every key spot is just a  tap away."
               }
             />
           ),
