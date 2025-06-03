@@ -8,7 +8,8 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 export default function RootLayout() {
   const [loaded] = useFonts({
-    SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
+    primaryFont: require('../assets/fonts/CoolveticaRg-Regular 400.ttf'),
+    secondaryFont: require('../assets/fonts/Segoe UI Bold.ttf'),
   });
 
   if (!loaded) {
@@ -22,8 +23,8 @@ export default function RootLayout() {
       <SafeScreen>
         <GestureHandlerRootView style={{ flex: 1 }}>
           <Stack>
-            <Stack.Screen name="(onboarding)" options={{ headerShown: false }} />
             <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+            <Stack.Screen name="(onboarding)" options={{ headerShown: false }} />
           </Stack>
         </GestureHandlerRootView>
       </SafeScreen>
