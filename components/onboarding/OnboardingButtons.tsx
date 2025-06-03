@@ -30,10 +30,10 @@ export const nextButton = ({ ...props }) => {
     <View style={styles.button}>
       <Button
         title="Next"
-        buttonStyle={{ backgroundColor: COLORS.purple, borderRadius: 10, width: 60 }}
+        buttonStyle={{ backgroundColor: COLORS.purple, borderRadius: 10, width: 80 }}
         titleStyle={{
           color: COLORS.white,
-          fontFamily: "segoeui_blackItalic",
+          fontFamily: "secondaryFont",
           padding: 2,
           fontSize: FONTSIZE.secondaryFont.small,
         }}
@@ -52,7 +52,7 @@ export const doneButton = () => {
         buttonStyle={{ backgroundColor: COLORS.purple, borderRadius: 10}}
         titleStyle={{
           color: COLORS.white,
-          fontFamily: "segoeui_blackItalic",
+          fontFamily: "secondaryFont",
           padding: 2,
           fontSize: FONTSIZE.secondaryFont.small,
         }}
