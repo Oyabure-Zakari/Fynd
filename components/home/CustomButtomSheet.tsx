@@ -1,7 +1,7 @@
-import styles from "@/app/styles/home.styles";
 import BottomSheet, { BottomSheetView } from "@gorhom/bottom-sheet";
 import React, { useMemo } from "react";
 import { Text } from "react-native";
+import styles from "../../styles/home.styles";
 
 export default function CustomBottomSheet() {
   const snapPoints = useMemo(() => ["25%", "50%"], []);
