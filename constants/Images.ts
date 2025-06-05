@@ -5,4 +5,7 @@ export const IMAGES = {
   onboard4: require("../assets/images/onboarding4.png"),
   user: require("../assets/images/user.png"),
   admin: require("../assets/images/admin.png"),
+  google: require("../assets/images/google.png"),
+  building: require("../assets/images/building.png"),
+  device: require("../assets/images/device.png"),
 }
