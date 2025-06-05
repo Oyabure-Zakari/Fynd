@@ -16,12 +16,12 @@ export const skipButton = () => {
         title="Skip"
         buttonStyle={{ backgroundColor: COLORS.white, borderRadius: 10 }}
         titleStyle={{
-          color: COLORS.blackGrey,
+          color: COLORS.tertiaryGrey,
           fontSize: FONTSIZE.secondaryFont.small,
           fontFamily: "secondaryFont",
           padding: 8,
         }}
-        onPress={() => router.push("/(tabs)")}
+        onPress={() => router.push("/(auth)")}
       />
     </View>
   );
@@ -58,7 +58,7 @@ export const doneButton = () => {
           padding: 2,
           fontSize: FONTSIZE.secondaryFont.small,
         }}
-        onPress={() => router.push("/(tabs)")}
+        onPress={() => router.push("/(auth)")}
       />
     </View>
   );
