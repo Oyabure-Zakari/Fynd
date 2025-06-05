@@ -27,7 +27,11 @@ export default function index() {
       </View>
 
       <View style={styles.bottomContainer}>
-        <ScrollView>
+        <ScrollView 
+          style={{flex:1, width: "100%" }}
+          contentContainerStyle={{ flexGrow: 1 }}
+          keyboardShouldPersistTaps="handled"
+          >
           {selectedUserType === "user" ? <User /> : <Admin/>}
         </ScrollView>
       </View>
@@ -39,6 +43,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: "center",
+    backgroundColor: COLORS.white,
   },
 
   topContainer: {
