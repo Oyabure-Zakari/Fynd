@@ -52,7 +52,7 @@ export default function Admin() {
 
         <View style={styles.divider} />
 
-        <TouchableOpacity style={styles.loginButton}>
+        <TouchableOpacity style={styles.loginButton} onPress={() => console.log("Login pressed")}>
           <Text style={styles.loginButtonText}>Login</Text>
         </TouchableOpacity>
       </View>
@@ -87,7 +87,7 @@ const styles = StyleSheet.create({
 
   inputFieldContainer: {
     width: Dimensions.get("window").width * 0.9, // 90% of screen width
-    height: "auto",
+    // height: "auto",
     borderRadius: 10,
     // backgroundColor: COLORS.white,
     borderWidth: 1,
