@@ -3,7 +3,7 @@ import { Image, Text, View } from "react-native";
 
 import { IMAGES } from "@/constants/Images";
 import styles from "@/styles/auth.styles";
-import GoogleButton from "../reuseableComponents/googleButton";
+import GoogleButton from "../reuseableComponents/GoogleButton";
 
 export default function User() {
   return (
