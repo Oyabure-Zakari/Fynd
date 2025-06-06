@@ -10,6 +10,7 @@ export default function Home() {
     <View style={styles.container}>
       <Text> Home Screen</Text>
       <Button title="Click" onPress={() => router.push("/(onboarding)")}/>
+      <Button title="auth" onPress={() => router.push("/(auth)")}/>
       <CustomBottomSheet />
     </View>
   );
