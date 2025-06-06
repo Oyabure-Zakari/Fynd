@@ -8,7 +8,8 @@ import styles from "@/styles/auth.styles";
 
 import Entypo from "@expo/vector-icons/Entypo";
 import Ionicons from "@expo/vector-icons/Ionicons";
-import GoogleButton from "../reuseableComponents/googleButton";
+import GoogleButton from "../reuseableComponents/GoogleButton";
+
 
 export default function Admin() {
   const [userName, setUserName] = useState("");
