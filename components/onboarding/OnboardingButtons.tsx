@@ -8,6 +8,7 @@ import { FONTSIZE } from "@/constants/FontSize";
 import { useRouter } from "expo-router";
 import { Button } from "react-native-elements";
 
+//? skip button
 export const skipButton = () => {
   const router = useRouter();
   return (
@@ -27,12 +28,17 @@ export const skipButton = () => {
   );
 };
 
+//? next button
 export const nextButton = ({ ...props }) => {
   return (
     <View style={styles.onboardButton}>
       <Button
         title="Next"
-        buttonStyle={{ backgroundColor: COLORS.purple, borderRadius: 10, width: 80 }}
+        buttonStyle={{
+          backgroundColor: COLORS.purple,
+          borderRadius: 10,
+          width: 80,
+        }}
         titleStyle={{
           color: COLORS.white,
           fontFamily: "secondaryFont",
@@ -45,13 +51,14 @@ export const nextButton = ({ ...props }) => {
   );
 };
 
+//? done button
 export const doneButton = () => {
   const router = useRouter();
   return (
     <View style={styles.onboardButton}>
       <Button
         title="Get Started"
-        buttonStyle={{ backgroundColor: COLORS.purple, borderRadius: 10}}
+        buttonStyle={{ backgroundColor: COLORS.purple, borderRadius: 10 }}
         titleStyle={{
           color: COLORS.white,
           fontFamily: "secondaryFont",
@@ -63,4 +70,3 @@ export const doneButton = () => {
     </View>
   );
 };
-
