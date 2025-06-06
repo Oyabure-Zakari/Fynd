@@ -1,21 +1,18 @@
 import React, { useState } from "react";
 import { Image, Text, TextInput, TouchableOpacity, View } from "react-native";
 
-import { useRouter } from "expo-router";
-
 import { COLORS } from "@/constants/Colors";
 import { IMAGES } from "@/constants/Images";
 
 import styles from "@/styles/auth.styles";
-import googleButtonStyles from "@/styles/reusableStyles/googleButton.styles";
 
 import Entypo from "@expo/vector-icons/Entypo";
 import Ionicons from "@expo/vector-icons/Ionicons";
+import GoogleButton from "../reuseableComponents/googleButton";
 
 export default function Admin() {
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
-  const router = useRouter();
 
   return (
     <View style={styles.adminContainer}>
@@ -70,15 +67,7 @@ export default function Admin() {
       </Text>
 
       {/* Sign in with Google button */}
-      <TouchableOpacity
-        style={googleButtonStyles.googleButton}
-        onPress={() => router.push("/(tabs)")}
-      >
-        <Image style={googleButtonStyles.googleImage} source={IMAGES.google} />
-        <Text style={googleButtonStyles.googleButtonText}>
-          Sign in with Google
-        </Text>
-      </TouchableOpacity>
+      <GoogleButton />
     </View>
   );
 }

@@ -1,16 +1,11 @@
 import React from "react";
-
-import { useRouter } from "expo-router";
-
-import { Image, Text, TouchableOpacity, View } from "react-native";
+import { Image, Text, View } from "react-native";
 
 import { IMAGES } from "@/constants/Images";
 import styles from "@/styles/auth.styles";
-import googleButtonStyles from "@/styles/reusableStyles/googleButton.styles";
+import GoogleButton from "../reuseableComponents/googleButton";
 
 export default function User() {
-  const router = useRouter();
-
   return (
     <View style={styles.userContainer}>
       {/* user type image */}
@@ -23,15 +18,7 @@ export default function User() {
       </Text>
 
       {/* Sign in with Google button */}
-      <TouchableOpacity
-        style={googleButtonStyles.googleButton}
-        onPress={() => router.push("/(tabs)")}
-      >
-        <Image style={googleButtonStyles.googleImage} source={IMAGES.google} />
-        <Text style={googleButtonStyles.googleButtonText}>
-          Sign in with Google
-        </Text>
-      </TouchableOpacity>
+      <GoogleButton/>
     </View>
   );
 }
