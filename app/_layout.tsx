@@ -28,12 +28,20 @@ export default function RootLayout() {
       <SafeScreen>
         <GestureHandlerRootView style={{ flex: 1 }}>
           <Stack>
-            <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+            <Stack.Screen 
+              name="(tabs)" 
+              options={{ headerShown: false }} 
+            />
+
             <Stack.Screen
               name="(onboarding)"
               options={{ headerShown: false }}
             />
-            <Stack.Screen name="(auth)" options={{ headerShown: false }} />
+
+            <Stack.Screen 
+              name="(auth)" 
+              options={{ headerShown: false }} 
+            />
           </Stack>
         </GestureHandlerRootView>
       </SafeScreen>
