@@ -1,11 +1,12 @@
-import { COLORS } from '@/constants/Colors';
-import FontAwesome6 from '@expo/vector-icons/FontAwesome6';
-import Foundation from '@expo/vector-icons/Foundation';
-import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
-import { Tabs } from 'expo-router';
-import React from 'react';
+import { COLORS } from "@/constants/Colors";
+import FontAwesome6 from "@expo/vector-icons/FontAwesome6";
+import Foundation from "@expo/vector-icons/Foundation";
+import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
+import { Tabs } from "expo-router";
+import React from "react";
 
 export default function TabLayout() {
+  const isAdmin = true; // Replace with your actual logic to determine if the user is an admin
 
   return (
     <Tabs
@@ -19,30 +20,56 @@ export default function TabLayout() {
           borderTopColor: COLORS.primaryGrey,
           height: 60,
         },
-        
+
         tabBarHideOnKeyboard: true,
-      }}>
+      }}
+    >
       <Tabs.Screen
         name="index"
         options={{
-          tabBarLabel: 'Home',
-          tabBarIcon: ({ color, size }) => <FontAwesome6 name="map-location-dot" size={size} color={color} />,
+          tabBarLabel: "Home",
+          tabBarIcon: ({ color, size }) => (
+            <FontAwesome6 name="map-location-dot" size={size} color={color} />
+          ),
         }}
       />
+
       <Tabs.Screen
         name="Explore"
         options={{
-          tabBarLabel: 'Explore',
-          tabBarIcon: ({ color, size }) => <MaterialCommunityIcons name="lighthouse" size={size} color={color} />,
+          tabBarLabel: "Explore",
+          tabBarIcon: ({ color, size }) => (
+            <MaterialCommunityIcons
+              name="lighthouse"
+              size={size}
+              color={color}
+            />
+          ),
         }}
       />
+
+      {isAdmin ? (
         <Tabs.Screen
-        name="Upload"
-        options={{
-          tabBarLabel: 'Upload',
-          tabBarIcon: ({ color, size }) => <Foundation name="upload" size={size} color={color} />,
-        }}
-      />
+          name="Upload"
+          options={{
+            tabBarLabel: "Upload",
+            tabBarIcon: ({ color, size }) => (
+              <Foundation name="upload" size={size} color={color} />
+            ),
+          }}
+        />
+      ) : (
+        <Tabs.Screen
+          name="Upload"
+          options={{
+            href: null,
+            tabBarLabel: "Upload",
+            tabBarIcon: ({ color, size }) => (
+              <Foundation name="upload" size={size} color={color} />
+            ),
+          }}
+        />
+      )}
     </Tabs>
   );
 }
