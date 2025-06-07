@@ -22,7 +22,7 @@ const googleButtonStyles = StyleSheet.create({
 
   googleButtonText: {
     fontFamily: "secondaryFont",
-    color: COLORS.primaryGrey,
+    color: COLORS.white,
     fontSize: FONTSIZE.secondaryFont.small,
   },
 });
