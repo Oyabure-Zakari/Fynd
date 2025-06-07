@@ -25,7 +25,7 @@ export default function OnboardingUI() {
           subtitle: (
             <OnboardingSubtitle
               subTitle={
-                "Explore your surroundings with our dynamic map view. Zoom, pan, and tap to discover nearby places. Get a clear picture of the world  around you, start exploring now!"
+                "Explore your surroundings with our dynamic map view. Zoom, pan, and tap to discover nearby places. Get a clear picture of the world around you, start exploring now!"
               }
             />
           ),
@@ -64,7 +64,7 @@ export default function OnboardingUI() {
           subtitle: (
             <OnboardingSubtitle
               subTitle={
-                "Add new locations to the map by  uploading coordinates. Customize the  map for your team or community,  ensuring every key spot is just a  tap away."
+                "Add new locations to the map by uploading coordinates. Customize the map for your team or community,  ensuring every key spot is just a tap away."
               }
             />
           ),
