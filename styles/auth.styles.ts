@@ -26,8 +26,7 @@ const styles = StyleSheet.create({
 
   // Picker for user type selection
   picker: {
-    backgroundColor: COLORS.white,
-    borderRadius: 10,
+    backgroundColor: COLORS.primaryGrey,
   },
 
   bottomContainer: {
