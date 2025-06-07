@@ -1,3 +1,4 @@
+import { COLORS } from "@/constants/Colors";
 import { StyleSheet, Text, View } from "react-native";
 
 export default function Explore() {
@@ -13,5 +14,6 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
+    backgroundColor: COLORS.white,
   },
 });
