@@ -6,6 +6,7 @@ type appLaunchedType = {
   appLaunched: string;
   launchApp: () => Promise<void>
   checkAppLaunch: () => Promise<void>;
+  // removeAppLaunch: () => Promise<void>;
 }
 
 export const useAppLaunchedStore = create<appLaunchedType>()((set) => ({
@@ -15,9 +16,9 @@ export const useAppLaunchedStore = create<appLaunchedType>()((set) => ({
   launchApp: async () => {
     try {
       const launched = "true"
-      if (!launched) return;
       await AsyncStorage.setItem("@appLaunchedToken", launched);
-      set({ appLaunched: launched });
+      set({ appLaunched: launched, error: "" }); // Update the state with the new value
+      console.log("App launch token set successfully.");
     } catch (error:any) {
       set({ error: error.message })
     }
@@ -32,4 +33,14 @@ export const useAppLaunchedStore = create<appLaunchedType>()((set) => ({
       set({ error: error.message });
     }
   },
+
+  // removeAppLaunch: async () => {
+  //   try {
+  //     await AsyncStorage.removeItem("@appLaunchedToken");
+  //     console.log("App launch token removed successfully.");
+  //     set({ appLaunched: "" }); // Reset the appLaunched state
+  //   } catch (error: any) {
+  //     set({ error: error.message });
+  //   }
+  // },
 }))
