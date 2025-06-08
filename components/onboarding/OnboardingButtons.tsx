@@ -5,12 +5,14 @@ import styles from "../../styles/onboarding.styles";
 
 import { COLORS } from "@/constants/Colors";
 import { FONTSIZE } from "@/constants/FontSize";
-import { useRouter } from "expo-router";
 import { Button } from "react-native-elements";
+
+import { useAppLaunchedStore } from "@/store/appLaunched";
 
 //? skip button
 export const skipButton = () => {
-  const router = useRouter();
+  const appLaunched = useAppLaunchedStore((state) => state.launchApp);
+
   return (
     <View style={styles.onboardButton}>
       <Button
@@ -22,7 +24,7 @@ export const skipButton = () => {
           fontFamily: "secondaryFont",
           padding: 8,
         }}
-        onPress={() => router.push("/(auth)")}
+        onPress={appLaunched}
       />
     </View>
   );
@@ -53,7 +55,8 @@ export const nextButton = ({ ...props }) => {
 
 //? done button
 export const doneButton = () => {
-  const router = useRouter();
+  const appLaunched = useAppLaunchedStore((state) => state.launchApp);
+
   return (
     <View style={styles.onboardButton}>
       <Button
@@ -65,7 +68,7 @@ export const doneButton = () => {
           padding: 2,
           fontSize: FONTSIZE.secondaryFont.small,
         }}
-        onPress={() => router.push("/(auth)")}
+        onPress={appLaunched}
       />
     </View>
   );
