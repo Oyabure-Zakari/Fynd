@@ -1,8 +1,10 @@
 import SafeScreen from "@/components/SafeScreen";
 import { COLORS } from "@/constants/Colors";
+import { useAppLaunchedStore } from "@/store/appLaunched";
 
 import { useFonts } from "expo-font";
-import { Stack } from "expo-router";
+import { SplashScreen, Stack, useRouter, useSegments } from "expo-router";
+import { useEffect } from "react";
 
 import { StatusBar } from "react-native";
 
@@ -12,10 +14,34 @@ import "react-native-reanimated";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 
 export default function RootLayout() {
+  const router = useRouter();
+  const segments = useSegments();
+
+    const launched = useAppLaunchedStore((state) => state.appLaunched);
+    const checkAppLaunch = useAppLaunchedStore((state) => state.checkAppLaunch);
+
   const [loaded] = useFonts({
     primaryFont: require("../assets/fonts/CoolveticaRg-Regular 400.ttf"),
     secondaryFont: require("../assets/fonts/Segoe UI Bold.ttf"),
   });
+
+  useEffect(() => {
+    // updates the appLaunched state immediately the app is launched    
+    checkAppLaunch(); 
+  }, []);
+
+  useEffect(() => {
+    if (loaded) {
+      // Only navigate after fonts are loaded and Stack is rendered
+      const hasLaunchedApp = launched;
+      const isInOnboardingScreen = segments[0] === "(onboarding)";
+
+      if (!hasLaunchedApp && !isInOnboardingScreen) router.replace("/(onboarding)");
+      else if (hasLaunchedApp && isInOnboardingScreen) router.replace("/(auth)");
+      
+      SplashScreen.hideAsync();
+    }
+  }, [loaded, launched, segments]);
 
   if (!loaded) {
     // Async font loading only occurs in development.
