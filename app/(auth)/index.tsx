@@ -3,7 +3,7 @@ import { ScrollView, Text, View } from "react-native";
 
 import { Picker } from "@react-native-picker/picker";
 
-import Admin from "@/components/auth/Admin";
+import Admin from "@/components/auth/admin/Admin";
 import User from "@/components/auth/User";
 import styles from "@/styles/auth.styles";
 
@@ -14,7 +14,7 @@ export default function index() {
     <View style={styles.container}>
       {/* top container */}
       <View style={styles.topContainer}>
-        {/* selcet user type */}
+        {/* select user type */}
         <Text style={styles.title}>Select User Type</Text>
 
         {/* Picker for user type selection */}
