@@ -1,12 +1,21 @@
-import { COLORS } from "@/constants/Colors";
+import React, { useEffect } from "react";
+
 import FontAwesome6 from "@expo/vector-icons/FontAwesome6";
 import Foundation from "@expo/vector-icons/Foundation";
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
 import { Tabs } from "expo-router";
-import React from "react";
+
+import { COLORS } from "@/constants/Colors";
+import { useLoginAdminStore } from "@/store/loginAdmin";
 
 export default function TabLayout() {
-  const isAdmin = true; // Replace with your actual logic to determine if the user is an admin
+  const isAdmin = useLoginAdminStore((state) => state.adminToken);
+  const checkAdminToken = useLoginAdminStore((state) => state.checkAdminToken);
+
+  // updates the adminToken state immediately the app is launched
+  useEffect(() => {
+    checkAdminToken();
+  }, []);
 
   return (
     <Tabs
