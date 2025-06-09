@@ -4,14 +4,15 @@ import { create } from 'zustand';
 type appLaunchedType = {
   error: string;
   appLaunched: string;
+  isCheckingLaunch: boolean;
   launchApp: () => Promise<void>
   checkAppLaunch: () => Promise<void>;
-  // removeAppLaunch: () => Promise<void>;
 }
 
 export const useAppLaunchedStore = create<appLaunchedType>()((set) => ({
   error: "",
   appLaunched: "",
+  isCheckingLaunch: true,
   
   launchApp: async () => {
     try {
@@ -31,6 +32,8 @@ export const useAppLaunchedStore = create<appLaunchedType>()((set) => ({
       set({ appLaunched: appHasLaunched });
     } catch (error: any) {
       set({ error: error.message });
+    } finally {
+      set({ isCheckingLaunch: false }); 
     }
   },
 
