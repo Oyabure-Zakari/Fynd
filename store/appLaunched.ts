@@ -7,6 +7,7 @@ type appLaunchedType = {
   isCheckingLaunch: boolean;
   launchApp: () => Promise<void>
   checkAppLaunch: () => Promise<void>;
+  removeAppLaunch: () => Promise<void>;
 }
 
 export const useAppLaunchedStore = create<appLaunchedType>()((set) => ({
@@ -37,13 +38,13 @@ export const useAppLaunchedStore = create<appLaunchedType>()((set) => ({
     }
   },
 
-  // removeAppLaunch: async () => {
-  //   try {
-  //     await AsyncStorage.removeItem("@appLaunchedToken");
-  //     console.log("App launch token removed successfully.");
-  //     set({ appLaunched: "" }); // Reset the appLaunched state
-  //   } catch (error: any) {
-  //     set({ error: error.message });
-  //   }
-  // },
+  removeAppLaunch: async () => {
+    try {
+      await AsyncStorage.removeItem("@appLaunchedToken");
+      console.log("App launch token removed successfully.");
+      set({ appLaunched: "" }); // Reset the appLaunched state
+    } catch (error: any) {
+      set({ error: error.message });
+    }
+  },
 }))
