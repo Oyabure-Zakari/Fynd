@@ -17,17 +17,17 @@ export default function RootLayout() {
   const router = useRouter();
   const segments = useSegments();
 
-    const launched = useAppLaunchedStore((state) => state.appLaunched);
-    const checkAppLaunch = useAppLaunchedStore((state) => state.checkAppLaunch);
+  const launched = useAppLaunchedStore((state) => state.appLaunched);
+  const checkAppLaunch = useAppLaunchedStore((state) => state.checkAppLaunch);
 
   const [loaded] = useFonts({
-    primaryFont: require("../assets/fonts/CoolveticaRg-Regular 400.ttf"),
-    secondaryFont: require("../assets/fonts/Segoe UI Bold.ttf"),
+    primaryFont: require("../assets/fonts/CoolveticaRg-Regular.ttf"),
+    secondaryFont: require("../assets/fonts/SegoeUI-Bold.ttf"),
   });
 
   useEffect(() => {
-    // updates the appLaunched state immediately the app is launched    
-    checkAppLaunch(); 
+    // updates the appLaunched state immediately the app is launched
+    checkAppLaunch();
   }, []);
 
   useEffect(() => {
@@ -36,27 +36,28 @@ export default function RootLayout() {
       const hasLaunchedApp = launched;
       const isInOnboardingScreen = segments[0] === "(onboarding)";
 
-      if (!hasLaunchedApp && !isInOnboardingScreen) router.replace("/(onboarding)");
+      if (!hasLaunchedApp && !isInOnboardingScreen)
+        router.replace("/(onboarding)");
       else if (hasLaunchedApp && isInOnboardingScreen) router.replace("/(auth)");
-      
+
       SplashScreen.hideAsync();
     }
   }, [loaded, launched, segments]);
 
-  if (!loaded) {
-    // Async font loading only occurs in development.
+    if (!loaded) {
+    // Aysnc font loading is still in progress
     return null;
   }
 
   return (
     <SafeAreaProvider>
-      <StatusBar barStyle="dark-content" backgroundColor={COLORS.white } />
+      <StatusBar barStyle="dark-content" backgroundColor={COLORS.white} />
       <SafeScreen>
         <GestureHandlerRootView style={{ flex: 1 }}>
           <Stack>
-            <Stack.Screen 
-              name="(tabs)" 
-              options={{ headerShown: false }} 
+            <Stack.Screen
+              name="(tabs)"
+              options={{ headerShown: false }}
             />
 
             <Stack.Screen
@@ -64,9 +65,9 @@ export default function RootLayout() {
               options={{ headerShown: false }}
             />
 
-            <Stack.Screen 
-              name="(auth)" 
-              options={{ headerShown: false }} 
+            <Stack.Screen
+              name="(auth)"
+              options={{ headerShown: false }}
             />
           </Stack>
         </GestureHandlerRootView>
