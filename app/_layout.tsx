@@ -21,8 +21,8 @@ export default function RootLayout() {
     const checkAppLaunch = useAppLaunchedStore((state) => state.checkAppLaunch);
 
   const [loaded] = useFonts({
-    primaryFont: require("../assets/fonts/CoolveticaRg-Regular 400.ttf"),
-    secondaryFont: require("../assets/fonts/Segoe UI Bold.ttf"),
+    primaryFont: require("../assets/fonts/CoolveticaRg-Regular-400.ttf"),
+    secondaryFont: require("../assets/fonts/Segoe-UI-Bold.ttf"),
   });
 
   useEffect(() => {
