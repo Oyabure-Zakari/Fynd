@@ -2,7 +2,7 @@ import { ADMIN_TOKEN } from "@env";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { create } from "zustand";
 
-type loginAdminType = {
+type LoginAdminType = {
   error: string;
   userName: string;
   password: string;
@@ -14,7 +14,7 @@ type loginAdminType = {
   logoutAdmin: () => Promise<void>;
 };
 
-export const useLoginAdminStore = create<loginAdminType>()((set, get) => ({
+export const useLoginAdminStore = create<LoginAdminType>()((set, get) => ({
   error: "",
   userName: "",
   password: "",

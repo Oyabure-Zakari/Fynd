@@ -14,7 +14,7 @@ export default function User() {
       {/* user type text */}
       <Text style={styles.userWriteUp}>
         As an ordinary user, explore the world with ease! Use our interactive
-        map to find your location and search for destinations.{" "}
+        map to find your location and search for destinations.
       </Text>
 
       {/* Sign in with Google button */}

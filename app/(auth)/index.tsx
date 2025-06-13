@@ -1,11 +1,10 @@
 import React, { useState } from "react";
 import { ScrollView, Text, View } from "react-native";
 
-import { Picker } from "@react-native-picker/picker";
-
 import Admin from "@/components/auth/admin/Admin";
 import User from "@/components/auth/User";
 import styles from "@/styles/auth.styles";
+import { Picker } from "@react-native-picker/picker";
 
 export default function index() {
   const [selectedUserType, setSelectedUserType] = useState("user");

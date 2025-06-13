@@ -1,6 +1,11 @@
 import SafeScreen from "@/components/SafeScreen";
 import { COLORS } from "@/constants/Colors";
 import { useAppLaunchedStore } from "@/store/appLaunched";
+import { useGoogleSignInStore } from "@/store/googleSignIn";
+import {
+  appLaunchedNavigationLogic,
+  googleSignInNavigationLogic,
+} from "@/utils/navigationLogic";
 
 import { useFonts } from "expo-font";
 import { SplashScreen, Stack, useRouter, useSegments } from "expo-router";
@@ -17,40 +22,44 @@ export default function RootLayout() {
   const router = useRouter();
   const segments = useSegments();
 
-    const launched = useAppLaunchedStore((state) => state.appLaunched);
-    const checkAppLaunch = useAppLaunchedStore((state) => state.checkAppLaunch);
+  // app launch
+  const launched = useAppLaunchedStore((state) => state.appLaunched);
+  const checkAppLaunch = useAppLaunchedStore((state) => state.checkAppLaunch);
+
+  // google signin
+  const idToken = useGoogleSignInStore((state) => state.idToken);
+  const checkIdToken = useGoogleSignInStore((state) => state.checkIdToken);
 
   const [loaded] = useFonts({
-    primaryFont: require("../assets/fonts/CoolveticaRg-Regular-400.ttf"),
-    secondaryFont: require("../assets/fonts/Segoe-UI-Bold.ttf"),
+    primaryFont: require("../assets/fonts/CoolveticaRg-Regular.ttf"),
+    secondaryFont: require("../assets/fonts/SegoeUI-Bold.ttf"),
   });
 
   useEffect(() => {
-    // updates the appLaunched state immediately the app is launched    
-    checkAppLaunch(); 
+    // checks if app has launched before
+    checkAppLaunch();
+    // checks if google id token is set
+    checkIdToken();
   }, []);
 
   useEffect(() => {
     if (loaded) {
       // Only navigate after fonts are loaded and Stack is rendered
-      const hasLaunchedApp = launched;
-      const isInOnboardingScreen = segments[0] === "(onboarding)";
+      appLaunchedNavigationLogic(launched, router, segments); // function that handles app launched navigation logic
+      googleSignInNavigationLogic(idToken, router, segments); // funcion that handles google SsignIn navigation logic
 
-      if (!hasLaunchedApp && !isInOnboardingScreen) router.replace("/(onboarding)");
-      else if (hasLaunchedApp && isInOnboardingScreen) router.replace("/(auth)");
-      
       SplashScreen.hideAsync();
     }
-  }, [loaded, launched, segments]);
+  }, [loaded, launched, idToken, segments]);
 
   if (!loaded) {
-    // Async font loading only occurs in development.
+    // Aysnc font loading is still in progress
     return null;
   }
 
   return (
     <SafeAreaProvider>
-      <StatusBar barStyle="dark-content" backgroundColor={COLORS.white } />
+      <StatusBar barStyle="dark-content" backgroundColor={COLORS.white} />
       <SafeScreen>
         <GestureHandlerRootView style={{ flex: 1 }}>
           <Stack>
