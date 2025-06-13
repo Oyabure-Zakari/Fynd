@@ -1,7 +1,7 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { create } from 'zustand';
 
-type appLaunchedType = {
+type AppLaunchedType = {
   error: string;
   appLaunched: string;
   isCheckingLaunch: boolean;
@@ -10,7 +10,7 @@ type appLaunchedType = {
   removeAppLaunch: () => Promise<void>;
 }
 
-export const useAppLaunchedStore = create<appLaunchedType>()((set) => ({
+export const useAppLaunchedStore = create<AppLaunchedType>()((set) => ({
   error: "",
   appLaunched: "",
   isCheckingLaunch: true,
