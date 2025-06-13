@@ -58,8 +58,8 @@ export const useGoogleSignInStore = create<GoogleSignInType>()((set) => ({
         }
         await AsyncStorage.setItem("@idToken", response.data.idToken);
         set({ idToken: response.data.idToken, userInfo: response.data.user });
-        console.log({ idToken: response.data.idToken });
-        console.log({ userInfo: response.data.user });
+        console.log("User signed in successfully");
+        console.log("AsyncStorage: idToken saved");
       } else {
         // sign in was cancelled by user
         set({ error: "SignIn cancelled" });
