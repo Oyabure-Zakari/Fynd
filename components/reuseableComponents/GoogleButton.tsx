@@ -1,19 +1,17 @@
-import { useRouter } from "expo-router";
 import React from "react";
-import { Text, TouchableOpacity } from "react-native";
-
-import googleButtonStyles from "@/styles/reusableStyles/googleButton.styles";
+import { Image, Text, TouchableOpacity } from "react-native";
 
 import { IMAGES } from "@/constants/Images";
-import { Image } from "react-native";
+import { useGoogleSignInStore } from "@/store/googleSignIn";
+import googleButtonStyles from "@/styles/reusableStyles/googleButton.styles";
 
 export default function GoogleButton() {
-  const router = useRouter();
+  const signInWithGoogle = useGoogleSignInStore((state) => state.signInWithGoogle);
+
   return (
-    // google button
     <TouchableOpacity
       style={googleButtonStyles.googleButton}
-      onPress={() => router.push("/(tabs)")}
+      onPress={signInWithGoogle}
     >
       {/* google logo */}
       <Image style={googleButtonStyles.googleImage} source={IMAGES.google} />
@@ -25,4 +23,3 @@ export default function GoogleButton() {
     </TouchableOpacity>
   );
 }
-
