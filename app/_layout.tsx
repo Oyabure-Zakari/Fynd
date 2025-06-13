@@ -35,25 +35,35 @@ export default function RootLayout() {
     secondaryFont: require("../assets/fonts/SegoeUI-Bold.ttf"),
   });
 
+  // handles checks
   useEffect(() => {
-    // checks if app has launched before
-    checkAppLaunch();
-    // checks if google id token is set
-    checkIdToken();
+    checkAppLaunch(); // checks if app has launched before
+    checkIdToken(); // checks if google id token is set
   }, []);
 
+  // handles font load
   useEffect(() => {
     if (loaded) {
-      // Only navigate after fonts are loaded and Stack is rendered
-      appLaunchedNavigationLogic(launched, router, segments); // function that handles app launched navigation logic
-      googleSignInNavigationLogic(idToken, router, segments); // funcion that handles google SsignIn navigation logic
-
       SplashScreen.hideAsync();
     }
-  }, [loaded, launched, idToken, segments]);
+  }, [loaded]);
 
+  // handles app launched navigation logic
+  useEffect(() => {
+    if (loaded) {
+      appLaunchedNavigationLogic(launched, router, segments);
+    }
+  }, [loaded, launched, segments]);
+
+  // handles google sign navigation logic
+  useEffect(() => {
+    if (loaded) {
+      googleSignInNavigationLogic(idToken, router, segments);
+    }
+  }, [loaded, idToken, segments]);
+
+  // Aysnc font loading is still in progress
   if (!loaded) {
-    // Aysnc font loading is still in progress
     return null;
   }
 
