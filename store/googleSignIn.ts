@@ -27,11 +27,11 @@ type GoogleSignInType = {
 };
 
 GoogleSignin.configure({
-  webClientId: WEB_CLIENT_ID, 
-  scopes: ['https://www.googleapis.com/auth/drive.readonly'], 
-  offlineAccess: true, 
-  forceCodeForRefreshToken: false, 
-  profileImageSize: 120, 
+  webClientId: WEB_CLIENT_ID,
+  scopes: ["https://www.googleapis.com/auth/drive.readonly"],
+  offlineAccess: true,
+  forceCodeForRefreshToken: false,
+  profileImageSize: 120,
 });
 
 export const useGoogleSignInStore = create<GoogleSignInType>()((set) => ({
@@ -59,7 +59,7 @@ export const useGoogleSignInStore = create<GoogleSignInType>()((set) => ({
         await AsyncStorage.setItem("@idToken", response.data.idToken);
         set({ idToken: response.data.idToken, userInfo: response.data.user });
         console.log("User signed in successfully");
-        console.log("AsyncStorage: idToken saved");
+        console.log("Google idToken saved");
       } else {
         // sign in was cancelled by user
         set({ error: "SignIn cancelled" });
@@ -88,7 +88,7 @@ export const useGoogleSignInStore = create<GoogleSignInType>()((set) => ({
         console.log(`Error signing in: ${error.message}`);
         set({ error: error.message });
       }
-    }
+    } 
   },
 
   checkIdToken: async () => {
@@ -98,18 +98,17 @@ export const useGoogleSignInStore = create<GoogleSignInType>()((set) => ({
       if (token) {
         // update idToken
         set({ idToken: token });
-        console.log("AsyncStorage: idToken saved");
       }
     } catch (error: any) {
       set({ error: error.message });
-    }
+    } 
   },
 
   removeIdToken: async () => {
     try {
       await AsyncStorage.removeItem("@idToken");
       set({ idToken: "" });
-      console.log("AsyncStorage: idToken removed");
+      console.log("Google idToken removed");
     } catch (error: any) {
       set({ error: error.message });
     }
